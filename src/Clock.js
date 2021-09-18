@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 
 function formatDate (date, format) {
@@ -21,7 +20,7 @@ class Clock extends React.Component {
     componentDidMount() {
       this.timerID = setInterval(
         () => this.tick(),
-        100
+        50
       );
     }
   

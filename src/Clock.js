@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 
 function formatDate (date, format) {
@@ -15,7 +16,7 @@ function formatDate (date, format) {
 class Clock extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {date: new Date()};
+      this.state = {date: moment()};
     }
     componentDidMount() {
       this.timerID = setInterval(
@@ -30,18 +31,29 @@ class Clock extends React.Component {
   
     tick() {
       this.setState({         // 直接 stateに代入してはだめ。reactの基本
-        date: new Date()
+        date: moment()
       });
     }  
   
     render() {
       return (
         <div>
-           {formatDate(this.state.date, 'HH:mm:ss:SSS')}
-  
-        </div>
+          <p>
+         {this.state.date.toString()}
+         </p>
+         <p>
+         {this.state.date.utc().toString()}
+         </p>
+         </div>
+        
       );
     }
 }
 
 export default  Clock;
+
+/*
+          {this.state.data.clone().tz('Europe/London')}
+
+
+*/

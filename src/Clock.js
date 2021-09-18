@@ -38,6 +38,7 @@ class Clock extends React.Component {
     render() {
       return (
         <div>
+          {formatDate(this.state.date.toDate(), 'HH:mm:ss:SSS')}
           <p>
          {this.state.date.toString()}
          </p>

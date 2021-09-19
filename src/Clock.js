@@ -36,25 +36,14 @@ class Clock extends React.Component {
     }  
   
     render() {
+      const  dateTimeFormat = 'YYYY/MM/DD HH:mm:ss.SSS';
       return (
         <div>
-          {formatDate(this.state.date.toDate(), 'HH:mm:ss:SSS')}
-          <p>
-         {this.state.date.toString()}
-         </p>
-         <p>
-         {this.state.date.utc().toString()}
-         </p>
-         </div>
-        
+          <p>JST  {this.state.date.format(dateTimeFormat)} </p>
+          <p>UTC  {this.state.date.utc().format(dateTimeFormat)} </p>
+         </div>        
       );
     }
 }
 
 export default  Clock;
-
-/*
-          {this.state.data.clone().tz('Europe/London')}
-
-
-*/
